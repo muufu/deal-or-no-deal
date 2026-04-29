@@ -27,7 +27,7 @@ export function IntroScreen({ config, onStart }: Props) {
             <div className="word">NO DEAL</div>
           </div>
           <button className="btn" onClick={() => {
-            if (config.audioOn) audio.sting();
+            if (config.audioOn) audio.click();
             onStart();
           }}>
             Play Now

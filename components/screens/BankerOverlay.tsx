@@ -18,14 +18,13 @@ export function BankerOverlay({
   config, message, dealLabel = 'DEAL', singleAction = false, onDeal, onNoDeal,
 }: Props) {
   useEffect(() => {
-    if (config.audioOn) {
-      audio.ringStart();
-      return () => audio.ringStop();
-    }
+    if (!config.audioOn) return;
+    audio.ringStart();
+    return () => audio.ringStop();
   }, [config.audioOn]);
 
   return (
-    <div className="overlay" role="dialog" aria-label="The Banker is calling">
+    <div className="overlay" role="dialog" aria-modal="true" aria-label="The Banker is calling">
       <div className="banker-card">
         <div className="banker-calling">— THE BANKER IS CALLING —</div>
         <div className="banker-booth">

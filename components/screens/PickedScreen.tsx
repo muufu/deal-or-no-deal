@@ -9,7 +9,7 @@ import type { GameConfig } from '@/lib/config';
 
 interface Props {
   config: GameConfig;
-  caseNum: number;
+  caseNum: 1 | 2 | 3;
   onContinue: () => void;
 }
 
@@ -31,7 +31,7 @@ export function PickedScreen({ config, caseNum, onContinue }: Props) {
           <div className="picked-case-word">CASE</div>
           <div className="picked-case-num">{caseNum}</div>
           <div className="picked-figure">
-            <Figure variant={caseNum as 1|2|3} />
+            <Figure variant={caseNum} />
             <div className="picked-figure-glow" />
           </div>
           <div className="picked-msg">
