@@ -21,7 +21,7 @@ export function Figure({ variant = 1 }: Props) {
         className="figure-img"
         priority
         draggable={false}
-        style={{ objectFit: 'contain' }}
+        style={{ objectFit: 'contain', objectPosition: 'bottom' }}
       />
     </div>
   );
