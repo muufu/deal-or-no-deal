@@ -23,7 +23,7 @@ export const CONFIG: GameConfig = {
   showTitle: 'EDBOO BIRTHDAY EDITION',
   gifts: [
     { name: 'Meta VR Experience',      desc: 'Step into another world together.',      icon: '🥽' },
-    { name: 'Tang Dynasty Banquet & Show', desc: 'A night of dynasty, dim sum and dance.', icon: '🏮' },
+    { name: 'Tang Dynasty Banquet & Show', desc: 'A royal feast and show fit for the courts of the Tang Dynasty.', icon: '🏮' },
     { name: 'Spa & Massage Day',        desc: 'Hands-off the laptop, hands-on the calm.', icon: '🌿' },
   ],
   finalMessage: "Happy birthday ❤️ briefcase or not we always make the best deals together. Can't wait to celebrate you, I love you ❤️",
