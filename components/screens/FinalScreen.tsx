@@ -31,11 +31,11 @@ export function FinalScreen({ config, gifts, yourCase, onPick }: Props) {
             <strong>any</strong> of the three. Whatever you want. It&apos;s yours.
           </div>
           <div className="gift-row">
-            {gifts.map((g, i) => (
+            {gifts.map((g) => (
               <div
-                key={i}
+                key={g.num}
                 className="gift-card"
-                onClick={() => { if (config.audioOn) audio.fanfare(); onPick(g); }}
+                onClick={() => { if (config.audioOn) audio.click(); onPick(g); }}
               >
                 {g.caseNum === yourCase && <div className="your-pick-tag">YOUR CASE</div>}
                 <div className="icon">{g.icon}</div>

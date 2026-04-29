@@ -42,8 +42,12 @@ export function Game() {
     setOpened(newOpened);
     setPendingReveal(null);
     const offer = bankerOffer(newOpened, cases, yourCase!);
-    setCurrentOffer(offer);
-    setPhase('banker');
+    if (offer) {
+      setCurrentOffer(offer);
+      setPhase('banker');
+    } else {
+      setPhase('banker_final');
+    }
   };
 
   const onDeal = () => {
@@ -67,7 +71,6 @@ export function Game() {
 
   const onFinalDealAccept = () => setPhase('final');
 
-  const yourCaseObj = cases.find(c => c.num === yourCase) ?? null;
   const pendingObj = cases.find(c => c.num === pendingReveal) ?? null;
   const isOpenPhase = ['open', 'banker', 'banker_final', 'reveal', 'reveal_your'].includes(phase);
 
@@ -105,7 +108,7 @@ export function Game() {
           onNoDeal={() => {}}
         />
       )}
-      {phase === 'final' && yourCase && yourCaseObj && (
+      {phase === 'final' && yourCase && (
         <FinalScreen
           config={CONFIG}
           gifts={cases.map(c => ({ ...c, caseNum: c.num }))}
