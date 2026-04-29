@@ -13,12 +13,6 @@ export type Phase =
   | 'final'
   | 'celebration';
 
-export interface Gift {
-  name: string;
-  desc: string;
-  icon: string;
-}
-
 export interface Case {
   num: 1 | 2 | 3;
   name: string;
@@ -45,10 +39,8 @@ export function bankerOffer(
   cases: Case[],
   yourCase: number
 ): Case | null {
-  const strangers = cases.filter(c => !opened.includes(c.num) && c.num !== yourCase);
-  if (strangers.length > 0) return strangers[0];
-  if (opened.length > 0) return cases.find(c => c.num === opened[0]) ?? null;
-  return null;
+  const remaining = cases.filter(c => !opened.includes(c.num) && c.num !== yourCase);
+  return remaining[0] ?? null;
 }
 
 export function bankerLine(
