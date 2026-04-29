@@ -19,9 +19,18 @@ export function Figure({ variant = 1 }: Props) {
     <img
       src={FIGURE_SRC[variant] ?? FIGURE_SRC[1]}
       alt=""
-      className="figure-img"
       draggable={false}
-      style={{ objectPosition: 'bottom' }}
+      style={{
+        position: 'absolute',
+        bottom: 0,
+        left: '50%',
+        transform: 'translateX(-50%)',
+        height: '100%',
+        width: 'auto',
+        maxWidth: 'none',
+        objectFit: 'contain',
+        objectPosition: 'bottom',
+      }}
     />
   );
 }
