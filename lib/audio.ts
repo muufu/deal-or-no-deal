@@ -77,7 +77,6 @@ let _ringInterval: ReturnType<typeof setInterval> | null = null;
 // The volume is kept low (0.12) so it underlays sound effects without competing.
 
 let _bgAudio: HTMLAudioElement | null = null;
-let _bgLoaded = false;
 
 export const bgMusic = {
   load(src: string): void {
@@ -85,10 +84,9 @@ export const bgMusic = {
     _bgAudio = new Audio(src);
     _bgAudio.loop = true;
     _bgAudio.volume = 0.12;
-    _bgLoaded = true;
   },
   play(): void {
-    if (_bgLoaded && _bgAudio) _bgAudio.play().catch(() => {});
+    if (_bgAudio) _bgAudio.play().catch(() => {});
   },
   stop(): void {
     if (_bgAudio) {

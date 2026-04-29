@@ -13,14 +13,16 @@ interface Props {
 
 export function Figure({ variant = 1 }: Props) {
   return (
-    <Image
-      src={FIGURE_SRC[variant] ?? FIGURE_SRC[1]}
-      alt=""
-      fill
-      className="figure-img"
-      style={{ objectFit: 'contain', objectPosition: 'bottom' }}
-      draggable={false}
-      priority
-    />
+    <div style={{ position: 'relative', height: '100%', width: '100%' }}>
+      <Image
+        src={FIGURE_SRC[variant] ?? FIGURE_SRC[1]}
+        alt=""
+        fill
+        className="figure-img"
+        priority
+        draggable={false}
+        style={{ objectFit: 'contain' }}
+      />
+    </div>
   );
 }

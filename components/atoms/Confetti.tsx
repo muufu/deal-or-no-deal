@@ -2,10 +2,11 @@
 'use client';
 import { useMemo } from 'react';
 
+const COLORS = ['var(--ui-blue)', 'var(--gold)', '#ffffff', '#c01515', '#5a8eff', '#ffe08a'];
+
 interface Props { count?: number; }
 
 export function Confetti({ count = 80 }: Props) {
-  const COLORS = ['var(--ui-blue)', 'var(--gold)', '#ffffff', '#c01515', '#5a8eff', '#ffe08a'];
   const pieces = useMemo(() =>
     Array.from({ length: count }, () => ({
       left: Math.random() * 100,
