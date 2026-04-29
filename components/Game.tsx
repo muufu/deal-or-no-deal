@@ -2,7 +2,7 @@
 'use client';
 import { useState, useCallback } from 'react';
 import { CONFIG } from '@/lib/config';
-import { buildCases, bankerOffer, bankerLine, bankerFinalLine } from '@/lib/game';
+import { buildCases, bankerLine, bankerFinalLine } from '@/lib/game';
 import type { Phase, Case } from '@/lib/game';
 import { IntroScreen } from '@/components/screens/IntroScreen';
 import { PickScreen } from '@/components/screens/PickScreen';
@@ -39,15 +39,12 @@ export function Game() {
 
   const afterReveal = () => {
     const newOpened = [...opened, pendingReveal!];
+    // Offer the gift just revealed — never spoil unopened cases
+    const justRevealed = cases.find(c => c.num === pendingReveal) ?? null;
     setOpened(newOpened);
     setPendingReveal(null);
-    const offer = bankerOffer(newOpened, cases, yourCase!);
-    if (offer) {
-      setCurrentOffer(offer);
-      setPhase('banker');
-    } else {
-      setPhase('banker_final');
-    }
+    setCurrentOffer(justRevealed);
+    setPhase('banker');
   };
 
   const onDeal = () => {
