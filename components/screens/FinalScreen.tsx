@@ -2,6 +2,7 @@
 'use client';
 import { Stars } from '@/components/atoms/Stars';
 import { BankerMascot } from '@/components/atoms/BankerMascot';
+import { Figure } from '@/components/atoms/Figure';
 import { TopBar } from '@/components/TopBar';
 import { audio } from '@/lib/audio';
 import type { GameConfig } from '@/lib/config';
@@ -38,7 +39,9 @@ export function FinalScreen({ config, gifts, yourCase, onPick }: Props) {
                 onClick={() => { if (config.audioOn) audio.click(); onPick(g); }}
               >
                 {g.caseNum === yourCase && <div className="your-pick-tag">YOUR CASE</div>}
-                <div className="icon">{g.icon}</div>
+                <div className="gift-card-figure">
+                  <Figure variant={g.num as 1 | 2 | 3} />
+                </div>
                 <div className="gname">{g.name}</div>
                 <div className="case-tag">BRIEFCASE {g.caseNum}</div>
               </div>

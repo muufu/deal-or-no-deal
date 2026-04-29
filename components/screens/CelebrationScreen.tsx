@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { Confetti } from '@/components/atoms/Confetti';
 import { Stars } from '@/components/atoms/Stars';
+import { Figure } from '@/components/atoms/Figure';
 import { audio } from '@/lib/audio';
 import type { GameConfig } from '@/lib/config';
 import type { Case } from '@/lib/game';
@@ -26,7 +27,9 @@ export function CelebrationScreen({ config, gift, onReplay }: Props) {
       <Stars count={40} />
       <div className="stage-inner">
         <div className="celebration">
-          <div className="celeb-icon">{gift.icon}</div>
+          <div className="celeb-figure">
+            <Figure variant={gift.num as 1 | 2 | 3} />
+          </div>
           <div className="section-divider">— YOU CHOSE —</div>
           <div className="celeb-title">{gift.name}</div>
           <div className="celeb-msg">{config.finalMessage}</div>

@@ -725,6 +725,7 @@ body {
 .reveal-cta {
   display: flex; flex-direction: column; align-items: center; gap: 10px;
   opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+  margin-top: clamp(48px, 7vh, 90px);
 }
 .reveal-cta.stage-4 { opacity: 1; pointer-events: auto; }
 .reveal-skip { font-size: 11px !important; letter-spacing: 0.2em; opacity: 0.5; pointer-events: auto; }
@@ -767,6 +768,11 @@ body {
   border-color: var(--gold);
   box-shadow: 0 0 0 1px var(--gold), 0 16px 50px color-mix(in oklab, var(--gold) 35%, transparent);
 }
+.gift-card-figure {
+  position: relative;
+  width: 100%;
+  height: clamp(100px, 14vw, 160px);
+}
 .gift-card .icon { font-size: clamp(42px,6vw,64px); }
 .gift-card .gname {
   font-family: var(--font-display); font-weight: 600;
@@ -794,6 +800,13 @@ body {
   font-size: clamp(80px,13vw,160px);
   filter: drop-shadow(0 0 40px color-mix(in oklab, var(--gold) 70%, transparent));
   animation: bobBig 3s ease-in-out infinite;
+}
+.celeb-figure {
+  position: relative;
+  width: clamp(140px, 20vw, 240px);
+  height: clamp(200px, 28vw, 340px);
+  animation: bobBig 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 40px color-mix(in oklab, var(--gold) 40%, transparent));
 }
 @keyframes bobBig { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-10px) scale(1.03); } }
 .celeb-title {
