@@ -1,9 +1,7 @@
 // components/TopBar.tsx
-import type { GameConfig } from '@/lib/config';
+import { CONFIG } from '@/lib/config';
 
-interface Props { config: GameConfig; }
-
-export function TopBar({ config }: Props) {
+export function TopBar() {
   return (
     <div className="topbar">
       <div className="logo-mini">
@@ -11,7 +9,7 @@ export function TopBar({ config }: Props) {
         <span className="em">·</span>
         <span>NO DEAL</span>
       </div>
-      <div className="show-tag">🎂&nbsp;{config.showTitle}</div>
+      <span className="show-tag">{CONFIG.showTitle}</span>
     </div>
   );
 }
